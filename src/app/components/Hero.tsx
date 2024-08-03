@@ -3,6 +3,7 @@ import { signIn, useSession } from "next-auth/react";
 import { PrimaryButton, SecondaryButton } from "./Button";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
+import Link from "next/link";
 
 export const Hero = () => {
   const session = useSession();
@@ -34,7 +35,9 @@ export const Hero = () => {
             </div>
             <div className="mt-5 text-pretty">
               <p className="text-sm text-gray-600 sm:text-lg">
-                <span className="font-semibold underline">WaaS Exchange</span>{" "}
+                <Link href="#" className="font-semibold underline">
+                  WaaS Exchange
+                </Link>{" "}
                 is a cutting-edge, built in with Spots, modern and fast
                 centralised exchange which also uses some aspects of
                 Decentralization for complete security and signing checks.

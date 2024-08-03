@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "WaaS Exchange",
   description:
     "A wallet as a Service Based Centralised Exchange, similar to CoinDCX.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.jpg" }],
 };
 
 export default function RootLayout({
