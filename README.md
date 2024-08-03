@@ -1,6 +1,6 @@
-# Create T3 App
+# A Centeralized Exchange similar to Coin DCX.
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+WaaS Exchange is a cutting-edge, built in with Spots, modern and fast centralised exchange which also uses some aspects of Decentralization for complete security and signing checks.
 
 ## What's next? How do I make an app with this?
 
