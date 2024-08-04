@@ -1,4 +1,7 @@
 import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import prisma from "~/app/db";
+import { Keypair } from "@solana/web3.js";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const handler = NextAuth({
@@ -15,7 +18,7 @@ const handler = NextAuth({
         if (!email) {
           return false;
         }
-        const userDb = await db.user.findFirst({
+        const userDb = await prisma.user.findFirst({
           where: {
             username: email,
           },
@@ -25,14 +28,18 @@ const handler = NextAuth({
           return true;
         }
 
-        await db.user.create({
+        const keypair = Keypair.generate();
+        const publicKey = keypair.publicKey.toBase58();
+        const privateKey = keypair.secretKey.toString();
+        console.log(publicKey, privateKey);
+        await prisma.user.create({
           data: {
             username: email,
-            password: "Google",
+            provider: "Google",
             solWallet: {
               create: {
-                publicKey: "",
-                privateKey: "",
+                publicKey: publicKey,
+                privateKey: privateKey,
               },
             },
             inrWallet: {
@@ -42,7 +49,9 @@ const handler = NextAuth({
             },
           },
         });
+        return true;
       }
+      return false;
     },
   },
 });
