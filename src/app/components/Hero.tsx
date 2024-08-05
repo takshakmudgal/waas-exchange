@@ -15,10 +15,11 @@ export const Hero = () => {
         aria-hidden="true"
         className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
       >
-        <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl"></div>
-        <div className="rounded-fulls h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl"></div>
+        <div className="h-[44rem] w-[35rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-violet-400 to-purple-100 blur-3xl"></div>
+        <div className="rounded-fulls h-[50rem] w-[60rem] origin-top-left -translate-x-[15rem] -rotate-12 bg-gradient-to-tl from-blue-400 via-blue-100 to-blue-50 blur-3xl"></div>
       </div>
-      <div className="relative z-10">
+
+      <div className="relative z-10 mt-36">
         <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
           <div className="mx-auto max-w-4xl text-center">
             <p className="inline-block bg-gradient-to-l from-blue-600 to-violet-500 bg-clip-text text-sm font-medium text-transparent">

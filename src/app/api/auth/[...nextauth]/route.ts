@@ -31,10 +31,11 @@ const handler = NextAuth({
         const keypair = Keypair.generate();
         const publicKey = keypair.publicKey.toBase58();
         const privateKey = keypair.secretKey.toString();
-        console.log(publicKey, privateKey);
         await prisma.user.create({
           data: {
             username: email,
+            name: profile?.name,
+            profilePicture: (profile as any)?.picture,
             provider: "Google",
             solWallet: {
               create: {
