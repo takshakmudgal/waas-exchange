@@ -44,7 +44,7 @@ export const AppBar = () => {
                 await signIn();
               }}
             >
-              Log In
+              Connect
             </PrimaryButton>
           )}
         </div>
