@@ -17,7 +17,7 @@ export const AppBar = () => {
         <Link href={"/"} className="group flex items-center gap-3">
           <div className="relative overflow-hidden rounded-full">
             <Image
-              src="/waas-exchange.jpg"
+              src="/favicon.jpg"
               alt="logo"
               width={50}
               height={50}

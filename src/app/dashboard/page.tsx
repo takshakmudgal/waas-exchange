@@ -27,7 +27,7 @@ async function getUserWallet() {
 export default async function DashboardPage() {
   const userWallet = await getUserWallet();
   if (userWallet.error ?? !userWallet.userWallet?.publicKey) {
-    return <>No solana wallet found</>;
+    return <span>No solana wallet was found.</span>;
   }
   return (
     <div className="relative overflow-hidden">
