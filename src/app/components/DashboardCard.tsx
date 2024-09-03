@@ -4,6 +4,7 @@ import { Greeting } from "./Greeting";
 import { useRouter } from "next/navigation";
 import { SecondaryButton } from "./Button";
 import { useCopyStatus } from "~/hooks/useCopyStatus";
+import { FaRegCopy } from "react-icons/fa6";
 
 export const DashboardCard = ({ publicKey }: { publicKey: string }) => {
   const { status, setCopySuccess, setCopyError } = useCopyStatus();
@@ -40,9 +41,14 @@ export const DashboardCard = ({ publicKey }: { publicKey: string }) => {
     router.push("/");
     return null;
   }
-
   const buttonText =
-    status.type === "idle" ? "Copy Wallet Address" : status.message;
+    status.type === "idle" ? (
+      <span className="flex items-center gap-1.5">
+        Your Wallet Address <FaRegCopy />
+      </span>
+    ) : (
+      status.message
+    );
 
   return (
     <div className="z-5 relative flex justify-center">
