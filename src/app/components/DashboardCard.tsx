@@ -53,10 +53,12 @@ export const DashboardCard = ({ publicKey }: { publicKey: string }) => {
   return (
     <div className="z-5 relative flex justify-center">
       <div className="h-[70vh] max-h-[45rem] w-[90vw] max-w-[65rem] rounded-lg bg-white px-6 py-6 shadow-2xl shadow-purple-400">
-        <Greeting
-          image={session.data?.user?.image ?? ""}
-          name={session.data?.user?.name ?? ""}
-        />
+        <div className="relative z-20">
+          <Greeting
+            image={session.data?.user?.image ?? ""}
+            name={session.data?.user?.name ?? ""}
+          />
+        </div>
         <Assets publicKey={publicKey} />
         <div className="flex justify-end">
           <SecondaryButton onClick={handleAddressCopy}>
