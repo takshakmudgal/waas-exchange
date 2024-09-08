@@ -1,14 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 const FollowShadow: React.FC = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
       setPosition({ x: ev.clientX, y: ev.clientY });
     };
-
     window.addEventListener("mousemove", updateMousePosition);
 
     return () => {
