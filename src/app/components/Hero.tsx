@@ -4,10 +4,24 @@ import { PrimaryButton, SecondaryButton } from "./Button";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
+import { useState } from "react";
+import { z } from "zod";
 
-export const Hero = () => {
+const HeroSchema = z.object({});
+
+type HeroProps = z.infer<typeof HeroSchema>;
+
+export const Hero: React.FC<HeroProps> = () => {
+  HeroSchema.parse({});
+
   const session = useSession();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGetStarted = async () => {
+    setIsLoading(true);
+    router.push("/dashboard");
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -46,11 +60,7 @@ export const Hero = () => {
             </div>
             <div className="mt-8">
               {session.data?.user ? (
-                <PrimaryButton
-                  onClick={() => {
-                    router.push("/dashboard");
-                  }}
-                >
+                <PrimaryButton onClick={handleGetStarted} isLoading={isLoading}>
                   Get Started
                 </PrimaryButton>
               ) : (
