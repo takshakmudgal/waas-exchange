@@ -13,7 +13,7 @@ export default function Spinner(props: SpinnerProps) {
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
-      {[...Array(5)].map((_, index) => (
+      {[...Array(12)].map((_, index) => (
         <div
           key={index}
           className="absolute h-3 w-3 rounded-full"
@@ -21,26 +21,22 @@ export default function Spinner(props: SpinnerProps) {
             backgroundColor: color,
             top: "50%",
             left: "50%",
-            transform: `rotate(${index * 72}deg) translate(${size / 2 - 6}px) rotate(-${index * 72}deg)`,
-            animation: `windows11Spin 4s ease-in-out infinite, windows11Fade 4s ease-in-out infinite ${
-              index * 0.2
-            }s`,
+            transform: `rotate(${index * 30}deg) translate(${size / 2 - 6}px) rotate(-${index * 30}deg)`,
+            animation: `spin 1.2s linear infinite, fade ${1.2 / 12 * index}s ease-in-out infinite`,
           }}
         />
       ))}
       <style jsx>{`
-        @keyframes windows11Spin {
+        @keyframes spin {
           0% {
             transform: rotate(0deg) translate(${size / 2 - 6}px) rotate(0deg);
           }
           100% {
-            transform: rotate(360deg) translate(${size / 2 - 6}px)
-              rotate(-360deg);
+            transform: rotate(360deg) translate(${size / 2 - 6}px) rotate(-360deg);
           }
         }
-        @keyframes windows11Fade {
-          0%,
-          100% {
+        @keyframes fade {
+          0%, 100% {
             opacity: 0;
           }
           50% {
